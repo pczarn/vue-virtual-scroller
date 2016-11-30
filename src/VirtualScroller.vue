@@ -27,6 +27,10 @@ export default {
       type: String,
       default: 'type',
     },
+    style: {
+      type: Object,
+      default: () => ({})
+    }
   },
   data: () => ({
     visibleItems: [],
@@ -59,6 +63,7 @@ export default {
       this.itemContainerStyle = {
         height: l * this.itemHeight + 'px',
         paddingTop: startIndex * this.itemHeight + 'px',
+        ...this.style
       }
       this.$forceUpdate()
     },
